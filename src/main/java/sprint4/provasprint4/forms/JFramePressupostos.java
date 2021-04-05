@@ -57,14 +57,14 @@ public class JFramePressupostos extends javax.swing.JFrame {
             ll_pres = llista_pres;
             initComponents();
             grupsTitle.setHorizontalAlignment(JLabel.CENTER); // Fa que el text de grupsTitle estigui centrat al seu contenidor
-            emplenarTaula("");
+            //emplenarTaula("");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /* Mètode per a emplenar la taula de Pressupostos */
-    public void emplenarTaula(String s) {
+   /* public void emplenarTaula(String s) {
         Object[] columnNames = {"ID", "Nom", "Projecte", "Descripció", "Data Alta", "Data Baixa", "Estat"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
@@ -79,7 +79,7 @@ public class JFramePressupostos extends javax.swing.JFrame {
         }
         taulaPressupostos.setModel(model);
 
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -335,7 +335,7 @@ public class JFramePressupostos extends javax.swing.JFrame {
                 int conf = JOptionPane.showConfirmDialog(this, "Esteu segurs de donar de baixa aquest Pressupost?", "Confirmar", JOptionPane.YES_NO_OPTION);
                 if (conf == JOptionPane.YES_OPTION) { // Si hem clickat a Confirmar, entra al if, borra l'element seleccionat, refresca la taula i fica selectedItem a -1 (ningun seleccionat)
                     ll_pres.baixaPressupost(selectedItem);
-                    emplenarTaula("");
+                    //emplenarTaula("");
                     selectedItem = -1;
                 }
             } else {
@@ -348,7 +348,7 @@ public class JFramePressupostos extends javax.swing.JFrame {
     }//GEN-LAST:event_borrarPressupostMouseClicked
 
     private void searchGroupsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchGroupsKeyTyped
-        emplenarTaula(searchGroups.getText()); // Cada vegada que s'escriu al input s'actualitza la taula
+        //emplenarTaula(searchGroups.getText()); // Cada vegada que s'escriu al input s'actualitza la taula
     }//GEN-LAST:event_searchGroupsKeyTyped
 
     private void modificarPressupostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarPressupostMouseClicked
@@ -416,7 +416,7 @@ public class JFramePressupostos extends javax.swing.JFrame {
                     //Cridem al mètode per a importar entitats indicant-li la classe llistaEntitats i la ruta del fitxer a importar
                     FileCsv.exportarCsvPressupostos(consulta2, ruta);
                     //Finalment emplenem la taula amb els valors importats
-                    emplenarTaula("");
+                    //emplenarTaula("");
                 }
 
             } else if (seleccion == JFileChooser.CANCEL_OPTION) {

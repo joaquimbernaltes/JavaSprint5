@@ -230,10 +230,9 @@ public class JFrameProjecteSeleccionar extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println(selectedItem);
         if (opcio == 0) {
-            JFrameAltaPressupost g_a = new JFrameAltaPressupost(ll_enti, ll_prop, ll_proj, ll_pres,
-                    selectedItem, nom_proj, descripcio_proj, data_alta);
+            //JFrameAltaPressupost g_a = new JFrameAltaPressupost(ll_enti, ll_prop, ll_proj, ll_pres, selectedItem, nom_proj, descripcio_proj, data_alta);
             // Al fer click a afegirGrup, instanciem el jframe JFrameAltaProposta
-            g_a.setVisible(true); // el fem visible
+            //g_a.setVisible(true); // el fem visible
             dispose(); // i tanquem la finestra que estavem
         } else {
 

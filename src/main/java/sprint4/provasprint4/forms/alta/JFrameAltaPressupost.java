@@ -313,7 +313,7 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
         } else {
 
             Projecte e = ll_proj.buscarPerNom(field_entitat.getText(), selectedItemProjecte);
-            ll_pres.inserirPressupost(field_nom_cost.getText(),field_quantitat_cost.getText(),field_estat_proposta.getText(), field_estat.getText(), field_preu_cost.getText(), e);
+            //ll_pres.inserirPressupost(field_nom_cost.getText(),field_quantitat_cost.getText(),field_estat_proposta.getText(), field_estat.getText(), field_preu_cost.getText(), e);
             enrereMouseClicked(evt);
         }
 
