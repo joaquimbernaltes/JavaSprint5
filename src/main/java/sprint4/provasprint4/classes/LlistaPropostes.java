@@ -15,10 +15,21 @@
  */
 package sprint4.provasprint4.classes;
 
+import config.Conexio;
+import config.ConexionSql;
+import sprint4.provasprint4.auxiliar.Log;
+import sprint4.provasprint4.*;
+import sprint4.provasprint4.classes.*;
+
+import java.sql.Connection;
+
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import config.ConexionSql;
 import sprint4.provasprint4.auxiliar.Log;
 
 /**
@@ -30,33 +41,37 @@ import sprint4.provasprint4.auxiliar.Log;
 
 /* Aquesta classe conté la llista on guardarem les propostes creades i els mètodes per a gestionar aquestes*/
 public class LlistaPropostes {
-
+	
+	ConexionSql cc = new ConexionSql();
+    Connection con = cc.conexion();
+    
     /* Atributs de la classe */
-    private int contador = 0;
+    //private int contador = 0;
     private final static int maxim = 10;
     public final ArrayList<Proposta> ll_prop = new ArrayList<>(maxim);
-    LocalDate date = LocalDate.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    String dataActual = date.format(formatter);
     Log log = new Log();
 
     /* Getter per a agafar el número de propostes que hi ha actualment */
-    public int getNumPropostesActuals() {
-        return contador;
-    }
+    
 
     /* Mètode per a inserir propostes */
-    public void inserirProposta(String titol, String descripcio, Entitat entitat) {
+    public void inserirPropostes(String nom, String descripcio, String requeriments, Double estimacio_economica, String estat) {
         try {
 
-            if (contador == maxim) {
-                System.out.println("Ja no hi caben més propostes!");
-                return;
-            }
-            Proposta m = new Proposta(contador + 1, titol, descripcio, entitat);
-            this.ll_prop.add(contador, m);
-            contador++;
-            log.generarInfoLog("info.log", "S'ha creat la proposta '" + m.getNom() + "'.\n");
+            //Pressupost m = new Pressupost(contador + 1, titol, descripcio, projecte);
+            //Agafa ll_pres i afegeix el num de contador (com a id) i m es el objecte de pressupost
+
+            String SQL ="insert into propuestas(id, id_empresa, id_grup, id_categoria, nom, descripcio, requeriments, ruta_image, estimacio_economica, estat_proposta, data_publica, data_acceptacio, estat) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(SQL);
+            pst.setString(1, nom);
+            pst.setString(2, descripcio);
+            pst.setString(3, requeriments);
+            pst.setDouble(4,estimacio_economica);
+            pst.setString(5,estat);
+            
+            
+
         } catch (Exception e) {
             log.generarErrorLog("error.log", e.toString());
         }
@@ -67,12 +82,12 @@ public class LlistaPropostes {
 
         try {
 
-            ll_prop.get(item).setDataBaixa(dataActual);
-            ll_prop.get(item).setEstat("Inactiva");
-            log.generarInfoLog("info.log", "S'ha donat de baixa la proposta '" + ll_prop.get(item).getNom() + "'.\n");
-        } catch (Exception e) {
-            log.generarErrorLog("error.log", e.toString());
-        }
+			//ll_prop.get(item).setDataBaixa(dataActual);
+			ll_prop.get(item).setEstat("Inactiva");
+			log.generarInfoLog("info.log", "S'ha donat de baixa la proposta '" + ll_prop.get(item).getNom() + "'.\n");
+		} catch (Exception e) {
+			log.generarErrorLog("error.log", e.toString());
+		}
 
     }
 
@@ -88,12 +103,12 @@ public class LlistaPropostes {
                 Proposta proposta = (Proposta) it.next();
                 if (proposta.toString().toLowerCase().contains(s.toLowerCase())) {
                     temp_consulta.ll_prop.add(proposta);
-                    temp_consulta.contador++;
+                    //temp_consulta.contador++;
                 }
             }
-            if (temp_consulta.getNumPropostesActuals() == 0) {
+           /* if (temp_consulta.getNumPropostesActuals() == 0) {
                 System.out.println("No s'han trobat resultats");
-            }
+            }*/
 
         } catch (Exception e) {
             log.generarErrorLog("error.log", e.toString());
