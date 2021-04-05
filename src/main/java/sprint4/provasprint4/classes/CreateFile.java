@@ -1,4 +1,4 @@
-package Sprint4.provasprint4.classes;
+package sprint4.provasprint4.classes;
 
 import java.io.File;  // Import the File class
 import java.io.IOException;  // Import the IOException class to handle errors

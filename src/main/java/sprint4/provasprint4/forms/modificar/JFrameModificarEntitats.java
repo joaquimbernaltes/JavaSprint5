@@ -13,13 +13,13 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms.modificar;
+package sprint4.provasprint4.forms.modificar;
 
-import Sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.classes.*;
 
 import javax.swing.UIManager;
 
-import Sprint4.provasprint4.forms.JFrameEntitats;
+import sprint4.provasprint4.forms.JFrameEntitats;
 
 /**
  * JFrameProjectes

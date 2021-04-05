@@ -13,18 +13,18 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms;
+package sprint4.provasprint4.forms;
 
-import Sprint4.provasprint4.auxiliar.FileCsv;
-import Sprint4.provasprint4.auxiliar.LectorCsv;
+import sprint4.provasprint4.auxiliar.FileCsv;
+import sprint4.provasprint4.auxiliar.LectorCsv;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
-import Sprint4.provasprint4.classes.*;
-import Sprint4.provasprint4.forms.alta.JFrameAltaEntitat;
-import Sprint4.provasprint4.forms.modificar.JFrameModificarEntitats;
+import sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.forms.alta.JFrameAltaEntitat;
+import sprint4.provasprint4.forms.modificar.JFrameModificarEntitats;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;

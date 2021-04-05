@@ -13,10 +13,16 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.classes;
+package sprint4.provasprint4.classes;
 
-import Sprint4.provasprint4.auxiliar.Log;
+import config.Conexio;
+import config.ConexionSql;
+import sprint4.provasprint4.auxiliar.Log;
+import sprint4.provasprint4.classes.Pressupost;
+import sprint4.provasprint4.classes.Projecte;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -32,8 +38,10 @@ import java.util.Iterator;
 /* Aquesta classe conté la llista on guardarem les presupostos creades i els mètodes per a gestionar aquestes*/
 public class LlistaPresupostos {
 
+    ConexionSql cc=new ConexionSql();
+    Connection con =cc.conexion();
+
     /* Atributs de la classe */
-    private int contador = 0;
     private final static int maxim = 10;
     //Creació arraylist de tipo pressupost en lo nom ll_pres i en capacitat maxima de 10
     public final ArrayList<Pressupost> ll_pres = new ArrayList<>(maxim);
@@ -41,23 +49,23 @@ public class LlistaPresupostos {
     Log log = new Log();
 
     /* Getter per a agafar el número de presupostos que hi ha actualment */
-    public int getNumpresupostosActuals() {
-        return contador;
-    }
+
 
     /* Mètode per a inserir presupostos */
-    public void inserirPressupost(  String titol, String descripcio,Projecte projecte) {
+    public void inserirPressupost(String nom_cost, Double preu_cost, int quantitat_cost,String estat_proposta,String estat) {
         try {
 
-            if (contador == maxim) {
-                System.out.println("Ja no hi caben més presupostos!");
-                return;
-            }
-            Pressupost m = new Pressupost(contador + 1, titol, descripcio, projecte);
+            //Pressupost m = new Pressupost(contador + 1, titol, descripcio, projecte);
             //Agafa ll_pres i afegeix el num de contador (com a id) i m es el objecte de pressupost
-            this.ll_pres.add(contador, m);
-            contador++;
-            log.generarInfoLog("info.log", "S'ha creat el " + m.toString() + "'.\n");
+
+            String SQL ="insert into linia_pressupost(id, id_pressupost,nom_cost,preu_cost,quantitat_cost,estat_proposta,estat) values (?,?,?,?,?,?,?)";
+            PreparedStatement pst =con.prepareStatement(SQL); //19:08
+            pst.setString(1, nom_cost);
+            pst.setDouble(2, preu_cost);
+            pst.setInt(3, quantitat_cost);
+            pst.setString(4,estat_proposta);
+            pst.setString(5,estat);
+
         } catch (Exception e) {
             log.generarErrorLog("error.log", e.toString());
         }
@@ -89,11 +97,8 @@ public class LlistaPresupostos {
                 //Canvia a minuscules i comprova en diferents formes
                 if (presupostos.toString().toLowerCase().contains(s.toLowerCase())) {
                     temp_consulta.ll_pres.add(presupostos);
-                    temp_consulta.contador++;
+
                 }
-            }
-            if (temp_consulta.getNumpresupostosActuals() == 0) {
-                System.out.println("No s'han trobat resultats");
             }
 
         } catch (Exception e) {

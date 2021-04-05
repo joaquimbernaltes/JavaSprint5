@@ -13,13 +13,13 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms.alta;
+package sprint4.provasprint4.forms.alta;
 
-import Sprint4.provasprint4.classes.*;
-import Sprint4.provasprint4.forms.JFramePressupostos;
-import Sprint4.provasprint4.forms.JFramePropostes;
-import Sprint4.provasprint4.forms.select.JFrameEntitatSeleccionar;
-import Sprint4.provasprint4.forms.select.JFrameProjecteSeleccionar;
+import sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.forms.JFramePressupostos;
+import sprint4.provasprint4.forms.JFramePropostes;
+import sprint4.provasprint4.forms.select.JFrameEntitatSeleccionar;
+import sprint4.provasprint4.forms.select.JFrameProjecteSeleccionar;
 
 import javax.swing.*;
 
@@ -43,6 +43,13 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
     public static int selectedItemProjecte = -1;
     public static String nom_pressupost;
     public static String descripcio_pressupost;
+
+    public static String nom_cost;
+    public static Double preu_cost;
+    public static int quantitat_cost;
+    public static String estat_proposta;
+    public static String estat;
+
     public String en;
     public String i;
     public int opcio = 0;
@@ -80,20 +87,22 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
     }
 
     public JFrameAltaPressupost(LlistaEntitats ll_enti, LlistaPropostes ll_prop, LlistaProjectes ll_proj,
-                                LlistaPresupostos ll_pres, int selectedItemProjecte, String nom_pressupost,
-                                String descripcio_pressupost, String data_alta) {
+                                LlistaPresupostos ll_pres, int selectedItemProjecte, String nom_cost, Double preu_cost, int quantitat_cost,String estat_proposta,String estat) {
         try {
             JFrameAltaPressupost.selectedItemProjecte = selectedItemProjecte;
             JFrameAltaPressupost.ll_enti = ll_enti;
             JFrameAltaPressupost.ll_proj = ll_proj;
             JFrameAltaPressupost.ll_prop = ll_prop;
             JFrameAltaPressupost.ll_pres = ll_pres;
-            JFrameAltaPressupost.nom_pressupost = nom_pressupost;
-            JFrameAltaPressupost.descripcio_pressupost = descripcio_pressupost;
+            JFrameAltaPressupost.nom_cost = nom_cost;
+            JFrameAltaPressupost.preu_cost = preu_cost;
+            JFrameAltaPressupost.quantitat_cost = quantitat_cost;
+            JFrameAltaPressupost.estat_proposta = estat_proposta;
+            JFrameAltaPressupost.estat = estat;
             this.data_alta = data_alta;
             initComponents();
             field_descripcio.setText(descripcio_pressupost);
-            field_nom.setText(nom_pressupost);
+            field_nom_cost.setText(nom_cost);
 
             if (selectedItemProjecte != -1) {
                 //Agafar el valor de l'entitat d'una taula
@@ -119,9 +128,12 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         javax.swing.JTextPane jTextPane1 = new javax.swing.JTextPane();
         javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
-        field_nom = new javax.swing.JTextField();
+        field_nom_cost = new javax.swing.JTextField();
+        field_quantitat_cost = new javax.swing.JTextField();
+        field_estat = new javax.swing.JTextField();
+        field_estat_proposta = new javax.swing.JTextField();
+
         javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
-        field_descripcio = new javax.swing.JTextField();
         javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
         javax.swing.JButton enrere = new javax.swing.JButton();
         javax.swing.JButton jButton2 = new javax.swing.JButton();
@@ -142,7 +154,7 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
 
         jLabel1.setText("Nom");
 
-        field_nom.addActionListener(new java.awt.event.ActionListener() {
+        field_nom_cost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 field_nomActionPerformed(evt);
             }
@@ -206,8 +218,10 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(field_nom)
-                            .addComponent(field_descripcio)
+                            .addComponent(field_nom_cost)
+                            .addComponent(field_quantitat_cost)
+                                .addComponent(field_estat_proposta)
+                                .addComponent(field_estat)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(field_entitat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(35, 35, 35)))
@@ -230,7 +244,7 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(field_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(field_nom_cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -278,7 +292,7 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Tornem a la finestra principal
-        JFrameProjecteSeleccionar ju = new JFrameProjecteSeleccionar(ll_enti, ll_proj, ll_prop, ll_pres, field_nom.getText(), field_descripcio.getText(), opcio, data_alta);
+        JFrameProjecteSeleccionar ju = new JFrameProjecteSeleccionar(ll_enti, ll_proj, ll_prop, ll_pres, field_nom_cost.getText(), field_descripcio.getText(), opcio, data_alta);
         ju.setVisible(true);       //la fem visible
         dispose(); //eliminem la finestra actual
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -293,13 +307,13 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
 
     private void boto_altaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boto_altaMouseClicked
         // TODO add your handling code here:
-        if (field_nom.getText().equals("") || field_descripcio.getText().equals("") || selectedItemProjecte == -1) {
+        if (field_nom_cost.getText().equals("") || field_quantitat_cost.getText().equals("") || field_descripcio.getText().equals("") || selectedItemProjecte == -1) {
             //Mostrem error si no selecciona res
             JOptionPane.showMessageDialog(this, "Per favor, introdueix les dades", "Error", JOptionPane.WARNING_MESSAGE);
         } else {
 
             Projecte e = ll_proj.buscarPerNom(field_entitat.getText(), selectedItemProjecte);
-            ll_pres.inserirPressupost(field_nom.getText(), field_descripcio.getText(), e);
+            ll_pres.inserirPressupost(field_nom_cost.getText(),field_quantitat_cost.getText(),field_estat_proposta.getText(), field_estat.getText(), field_preu_cost.getText(), e);
             enrereMouseClicked(evt);
         }
 
@@ -350,6 +364,10 @@ public class JFrameAltaPressupost extends javax.swing.JFrame {
 
     private javax.swing.JTextField field_descripcio;
     private javax.swing.JLabel field_entitat;
-    private javax.swing.JTextField field_nom;
+    private javax.swing.JTextField field_nom_cost;
+    private javax.swing.JTextField field_quantitat_cost;
+    private javax.swing.JTextField field_estat_proposta;
+    private javax.swing.JTextField field_estat;
+    private javax.swing.JTextField field_preu_cost;
     // End of variables declaration                   
 }

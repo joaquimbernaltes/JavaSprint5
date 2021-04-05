@@ -13,17 +13,17 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms.alta;
+package sprint4.provasprint4.forms.alta;
 
-import Sprint4.provasprint4.classes.Entitat;
+import sprint4.provasprint4.classes.Entitat;
 
 import javax.swing.*;
 
-import Sprint4.provasprint4.classes.LlistaEntitats;
-import Sprint4.provasprint4.classes.LlistaProjectes;
-import Sprint4.provasprint4.classes.LlistaPropostes;
-import Sprint4.provasprint4.classes.LlistaPresupostos;
-import Sprint4.provasprint4.forms.JFrameEntitats;
+import sprint4.provasprint4.classes.LlistaEntitats;
+import sprint4.provasprint4.classes.LlistaProjectes;
+import sprint4.provasprint4.classes.LlistaPropostes;
+import sprint4.provasprint4.classes.LlistaPresupostos;
+import sprint4.provasprint4.forms.JFrameEntitats;
 import java.util.Iterator;
 
 /**

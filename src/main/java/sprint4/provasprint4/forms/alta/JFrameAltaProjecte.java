@@ -13,19 +13,19 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms.alta;
+package sprint4.provasprint4.forms.alta;
 
 import javax.swing.UIManager;
-import Sprint4.provasprint4.classes.LlistaEntitats;
-import Sprint4.provasprint4.classes.LlistaProjectes;
-import Sprint4.provasprint4.classes.LlistaPropostes;
-import Sprint4.provasprint4.classes.Proposta;
-import Sprint4.provasprint4.classes.LlistaPresupostos;
-import Sprint4.provasprint4.forms.JFrameProjectes;
-import Sprint4.provasprint4.forms.select.JFramePropostaSeleccionar;
+import sprint4.provasprint4.classes.LlistaEntitats;
+import sprint4.provasprint4.classes.LlistaProjectes;
+import sprint4.provasprint4.classes.LlistaPropostes;
+import sprint4.provasprint4.classes.Proposta;
+import sprint4.provasprint4.classes.LlistaPresupostos;
+import sprint4.provasprint4.forms.JFrameProjectes;
+import sprint4.provasprint4.forms.select.JFramePropostaSeleccionar;
 import javax.swing.JOptionPane;
 
-import static Sprint4.provasprint4.forms.alta.JFrameAltaEntitat.ll_pres;
+import static sprint4.provasprint4.forms.alta.JFrameAltaEntitat.ll_pres;
 
 /**
  * JFrameAltaProjecte

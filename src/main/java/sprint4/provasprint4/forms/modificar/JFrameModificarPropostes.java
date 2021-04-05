@@ -13,16 +13,16 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms.modificar;
+package sprint4.provasprint4.forms.modificar;
 
-import Sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.classes.*;
 
 import javax.swing.UIManager;
 
-import Sprint4.provasprint4.forms.JFrameEntitats;
-import Sprint4.provasprint4.forms.JFrameProjectes;
-import Sprint4.provasprint4.forms.JFramePropostes;
-import Sprint4.provasprint4.forms.select.JFrameEntitatSeleccionar;
+import sprint4.provasprint4.forms.JFrameEntitats;
+import sprint4.provasprint4.forms.JFrameProjectes;
+import sprint4.provasprint4.forms.JFramePropostes;
+import sprint4.provasprint4.forms.select.JFrameEntitatSeleccionar;
 import javax.swing.JOptionPane;
 
 /**

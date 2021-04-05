@@ -13,12 +13,12 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms.alta;
+package sprint4.provasprint4.forms.alta;
 
 import javax.swing.UIManager;
-import Sprint4.provasprint4.classes.*;
-import Sprint4.provasprint4.forms.*;
-import Sprint4.provasprint4.forms.select.*;
+import sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.forms.*;
+import sprint4.provasprint4.forms.select.*;
 import javax.swing.JOptionPane;
 
 /**

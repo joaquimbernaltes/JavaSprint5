@@ -13,10 +13,10 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.auxiliar;
+package sprint4.provasprint4.auxiliar;
 
-import Sprint4.provasprint4.classes.Entitat;
-import Sprint4.provasprint4.classes.LlistaEntitats;
+import sprint4.provasprint4.classes.Entitat;
+import sprint4.provasprint4.classes.LlistaEntitats;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

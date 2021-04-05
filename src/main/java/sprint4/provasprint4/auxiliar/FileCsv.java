@@ -13,9 +13,9 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.auxiliar;
+package sprint4.provasprint4.auxiliar;
 
-import Sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.classes.*;
 
 import java.io.FileWriter;
 import java.util.ArrayList;

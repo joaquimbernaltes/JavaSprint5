@@ -13,14 +13,13 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms;
+package sprint4.provasprint4.forms;
+import sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.forms.alta.JFrameAltaPressupost;
+import sprint4.provasprint4.forms.modificar.JFrameModificarPressuposts;
+import sprint4.provasprint4.forms.modificar.JFrameModificarPropostes;
 
-import Sprint4.provasprint4.classes.*;
-import Sprint4.provasprint4.forms.alta.JFrameAltaPressupost;
-import Sprint4.provasprint4.forms.modificar.JFrameModificarPressuposts;
-import Sprint4.provasprint4.forms.modificar.JFrameModificarPropostes;
-
-import Sprint4.provasprint4.auxiliar.FileCsv;
+import sprint4.provasprint4.auxiliar.FileCsv;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

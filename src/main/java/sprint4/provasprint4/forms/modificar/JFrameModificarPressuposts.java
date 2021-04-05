@@ -13,12 +13,13 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms.modificar;
+package sprint4.provasprint4.forms.modificar;
 
-import Sprint4.provasprint4.classes.*;
-import Sprint4.provasprint4.forms.JFramePressupostos;
-import Sprint4.provasprint4.forms.JFramePropostes;
-import Sprint4.provasprint4.forms.select.JFrameEntitatSeleccionar;
+import sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.forms.JFramePressupostos;
+import sprint4.provasprint4.forms.JFramePropostes;
+import sprint4.provasprint4.forms.alta.JFrameAltaPressupost;
+import sprint4.provasprint4.forms.select.JFrameEntitatSeleccionar;
 
 import javax.swing.*;
 
@@ -44,6 +45,11 @@ public class JFrameModificarPressuposts extends javax.swing.JFrame {
     public static String descripcio;
     public static String data_alta;
     public static String en;
+    public static String nom_cost;
+    public static String preu_cos;
+    public static String quantitat_cost;
+    public static String estat_proposta;
+    public static String estat;
     private Pressupost pres;
 
     /* Establim els paràmetres del Frame */

@@ -13,19 +13,19 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms.select;
+package sprint4.provasprint4.forms.select;
 
-import Sprint4.provasprint4.classes.*;
-import Sprint4.provasprint4.forms.modificar.JFrameModificarPropostes;
-import Sprint4.provasprint4.forms.alta.JFrameAltaProposta;
+import sprint4.provasprint4.classes.*;
+import sprint4.provasprint4.forms.modificar.JFrameModificarPropostes;
+import sprint4.provasprint4.forms.alta.JFrameAltaProposta;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
-import static Sprint4.provasprint4.forms.JFrameEntitats.ll_enti;
-import Sprint4.provasprint4.forms.JFramePropostes;
+import static sprint4.provasprint4.forms.JFrameEntitats.ll_enti;
+import sprint4.provasprint4.forms.JFramePropostes;
 import java.util.ArrayList;
 import java.util.Iterator;
 

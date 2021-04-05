@@ -13,13 +13,13 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.forms;
+package sprint4.provasprint4.forms;
 
 import javax.swing.UIManager;
-import Sprint4.provasprint4.classes.*;
-import static Sprint4.provasprint4.forms.alta.JFrameAltaProposta.ll_enti;
-import static Sprint4.provasprint4.forms.alta.JFrameAltaProposta.ll_proj;
-import static Sprint4.provasprint4.forms.alta.JFrameAltaProposta.ll_prop;
+import sprint4.provasprint4.classes.*;
+import static sprint4.provasprint4.forms.alta.JFrameAltaProposta.ll_enti;
+import static sprint4.provasprint4.forms.alta.JFrameAltaProposta.ll_proj;
+import static sprint4.provasprint4.forms.alta.JFrameAltaProposta.ll_prop;
 
 /**
  * JFrameProjectes

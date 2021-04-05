@@ -13,12 +13,12 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.classes;
+package sprint4.provasprint4.classes;
 
-import static Sprint4.provasprint4.classes.LlistaProjectes.actualData;
+import static sprint4.provasprint4.classes.LlistaProjectes.actualData;
 import java.util.ArrayList;
 import java.util.Iterator;
-import Sprint4.provasprint4.auxiliar.Log;
+import sprint4.provasprint4.auxiliar.Log;
 
 /**
  * LlistaEntitats

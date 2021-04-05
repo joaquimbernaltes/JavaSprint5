@@ -13,13 +13,13 @@
  *       See the License for the specific language governing permissions and
  *       limitations under the License.
  */
-package Sprint4.provasprint4.classes;
+package sprint4.provasprint4.classes;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
-import Sprint4.provasprint4.auxiliar.Log;
+import sprint4.provasprint4.auxiliar.Log;
 import config.Conexio;
 import java.sql.Connection;
 import java.sql.ResultSet;
