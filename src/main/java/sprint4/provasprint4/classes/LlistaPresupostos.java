@@ -16,17 +16,19 @@
 package sprint4.provasprint4.classes;
 
 import config.Conexio;
-import config.ConexionSql;
 import sprint4.provasprint4.auxiliar.Log;
 import sprint4.provasprint4.classes.Pressupost;
 import sprint4.provasprint4.classes.Projecte;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * Llistapresupostos
@@ -38,8 +40,12 @@ import java.util.Iterator;
 /* Aquesta classe conté la llista on guardarem les presupostos creades i els mètodes per a gestionar aquestes*/
 public class LlistaPresupostos {
 
-    ConexionSql cc=new ConexionSql();
-    Connection con =cc.conexion();
+    /* Connexió BD */
+    Conexio con= new Conexio();
+    Connection cn;
+    Statement st;
+    ResultSet rs;
+    DefaultTableModel model;
 
     /* Atributs de la classe */
     private final static int maxim = 10;

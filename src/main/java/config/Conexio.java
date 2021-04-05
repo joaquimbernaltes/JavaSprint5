@@ -7,6 +7,7 @@ package config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,6 +31,10 @@ public class Conexio {
     }
     public Connection getConnection(){
         return con;
+    }
+
+    public PreparedStatement prepareStatement(String SQL) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

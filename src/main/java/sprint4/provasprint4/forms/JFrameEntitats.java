@@ -135,7 +135,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
 
             },
             new String [] {
-
+                "nom", "localitat", "direccio", "telefon", "cif", "email", "estat"
             }
         ));
         taulaEntitats.getTableHeader().setReorderingAllowed(false);
@@ -145,6 +145,9 @@ public class JFrameEntitats extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(taulaEntitats);
+        if (taulaEntitats.getColumnModel().getColumnCount() > 0) {
+            taulaEntitats.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         afegirEntitat.setText("Alta");
         afegirEntitat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -526,7 +529,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
             cn=con.getConnection();
             st=cn.createStatement();
             rs=st.executeQuery(sql);
-            Object[]empresa=new Object[7];
+            Object[]empresa=new Object[8];
             //Iniciem el model
            
             
@@ -539,6 +542,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
                 empresa[4]=rs.getString("telefon");
                 empresa[5]=rs.getString("cif");
                 empresa[6]=rs.getString("email");
+                empresa[7]=rs.getString("estat");
                 model.addRow(empresa);
             }
             //Envia les dades a la taula per mostrar-les

@@ -45,11 +45,11 @@ public class Empresa {
         this.telefon = telefon;
         this.cif = cif;
         this.cif = email;
-        this.estat = "Actiu";
+        this.estat = "actiu";
         
 
     }
-    public int getComptadorProjectes() {
+    public int getComptadorEmpreses() {
         return contador;
     }
     /* Getters */
@@ -121,6 +121,6 @@ public class Empresa {
 
     /* toString */
     public String toString() {
-        return id + " " + nom + " " + localitat + " " + direccio + " " + telefon + " " + cif + " " + email;
+        return id + " " + nom + " " + localitat + " " + direccio + " " + telefon + " " + cif + " " + email + " " + estat;
     }
 }
