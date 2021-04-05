@@ -238,7 +238,12 @@ public class JFrameAltaProjecte extends javax.swing.JFrame {
         } else {
             Proposta prop = ll_prop.buscarPerNom(camp_proposta.getText(), selectedItemProjecte);
             System.out.println(prop);
-            ll_proj.inserirProjecte(field_nom.getText(), field_descripcio.getText(), prop);
+            
+            LlistaProjectes projecte = new LlistaProjectes();
+            
+            projecte.inserirProjecte(field_nom.getText(), field_descripcio.getText(), prop);
+            
+            //ll_proj.inserirProjecte(field_nom.getText(), field_descripcio.getText(), prop);
             enrereMouseClicked(evt);
         }
     }//GEN-LAST:event_altaProjecteMouseClicked

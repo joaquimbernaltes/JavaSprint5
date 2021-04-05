@@ -60,10 +60,15 @@ public class LlistaProjectes {
     /* Mètode per a inserir projectes */
     public void inserirProjecte(String nom, String descripcio, Proposta proposta) {
         try {
-
+            //Probablement sobre "new Projecte"
             Projecte m = new Projecte(contador + 1, nom, descripcio, proposta);
-            ll_proj.add(contador, m);
-            contador++;
+            String sql = "insert into proyectos (id_proposta, nom_projecte, estat) values ('"+1+"','"+nom+"','actiu')";
+            cn=con.getConnection();
+            st=cn.createStatement();
+            st.executeUpdate(sql);
+
+            //ll_proj.add(contador, m);
+            //contador++;
             log.generarInfoLog("info.log", "S'ha creat el projecte " + "'" + m.getNom() + "'.\n");
         } catch (Exception e) {
             log.generarErrorLog("error.log", e.toString());
