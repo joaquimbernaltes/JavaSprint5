@@ -155,6 +155,33 @@ public class LlistaProjectes {
         return projecte;
     }
     
+/*    void llistar(){
+        String sql="select * from proyectos";
+        try {
+            cn=con.getConnection();
+            st=cn.createStatement();
+            rs=st.executeQuery(sql);
+            Object[]projecte=new Object[6];
+            //Iniciem el model
+            model=(DefaultTableModel)taulaPropostes.getModel();
+            
+            //Indiquem els camps i indiquem que s'afegeixi la línia
+            while(rs.next()){
+                projecte[0]=rs.getInt("id");
+                projecte[1]=rs.getInt("id_proposta");
+                projecte[2]=rs.getString("data_inici");
+                projecte[3]=rs.getString("data_final");
+                projecte[4]=rs.getString("nom_projecte");
+                projecte[5]=rs.getString("estat");
+                model.addRow(projecte);
+            }
+            //Envia les dades a la taula per mostrar-les
+            taulaPropostes.setModel(model);
+        } catch (Exception e) {
+            log.generarErrorLog("error.log", e.toString());
+        }
+    }
+*/
     /* Mètode per a retornar el llistat de projectes */
     public ArrayList<Projecte> returnList() {
         return ll_proj;
