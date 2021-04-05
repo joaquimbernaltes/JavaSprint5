@@ -33,7 +33,7 @@ public class Main {
         LlistaProjectes ll_proj = new LlistaProjectes();
         LlistaPropostes ll_prop = new LlistaPropostes();
         LlistaPresupostos ll_pres = new LlistaPresupostos();
-        ll_enti.entitatsInicials();
+        //ll_enti.entitatsInicials();
         JFrameMenuPrincipal m = new JFrameMenuPrincipal(ll_enti, ll_proj, ll_prop, ll_pres);
         m.setVisible(true);//Mostrem la pantalla principal
         

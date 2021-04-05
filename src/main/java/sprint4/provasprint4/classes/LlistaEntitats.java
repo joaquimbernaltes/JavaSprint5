@@ -15,9 +15,16 @@
  */
 package sprint4.provasprint4.classes;
 
+import config.Conexio;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import static sprint4.provasprint4.classes.LlistaProjectes.actualData;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.table.DefaultTableModel;
 import sprint4.provasprint4.auxiliar.Log;
 
 /**
@@ -29,13 +36,23 @@ import sprint4.provasprint4.auxiliar.Log;
 
 /* Aquesta classe conté la llista on guardarem les entitats creades i els mètodes per a gestionar aquestes*/
 public class LlistaEntitats {
+    
+    /* Connexió BD */
+    Conexio con= new Conexio();
+    Connection cn;
+    Statement st;
+    ResultSet rs;
+    DefaultTableModel model;
 
-    /* Atributs */
-    public int maxEntitats = 50;
-    public ArrayList<Entitat> ll_e = new ArrayList<>(maxEntitats);
+    /* Atributs de classe */
     public int contador = 0;
-
+    private final static int MAXIM = 10;
+    public final ArrayList<Entitat> ll_e = new ArrayList<>(MAXIM);
+    static LocalDate date = LocalDate.now();
+    static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    static String actualData = date.format(formatter);
     Log log = new Log();
+
 
     /* Setters / Getters */
     public int getComptadorEntitats() {
@@ -108,7 +125,7 @@ public class LlistaEntitats {
     }
 
     /* Mètode per a la creacio d'exemples */
-    public void entitatsInicials() {
+   /* public void entitatsInicials() {
         try {
             afegirEntitat("Pymeralia", "La Rapita", "pymer@gmail.com");
             afegirEntitat("Pymeralia", "La Rapita", "pymer@gmail.com");
@@ -118,7 +135,7 @@ public class LlistaEntitats {
         } catch (Exception e) {
             log.generarErrorLog("error.log", e.toString());
         }
-    }
+    }*/
 
     /* Metode per a cercar entitats pel nom */
     public Entitat buscarPerNom(String nom, int id) {

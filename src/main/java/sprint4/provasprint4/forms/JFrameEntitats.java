@@ -15,6 +15,7 @@
  */
 package sprint4.provasprint4.forms;
 
+import config.Conexio;
 import sprint4.provasprint4.auxiliar.FileCsv;
 import sprint4.provasprint4.auxiliar.LectorCsv;
 import javax.swing.JLabel;
@@ -26,6 +27,9 @@ import sprint4.provasprint4.classes.*;
 import sprint4.provasprint4.forms.alta.JFrameAltaEntitat;
 import sprint4.provasprint4.forms.modificar.JFrameModificarEntitats;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -42,6 +46,13 @@ import javax.swing.filechooser.FileSystemView;
 
 /* Mitjançant aquest Frame durem a terme la gestió i llistat de les entitats*/
 public class JFrameEntitats extends javax.swing.JFrame {
+    
+     /* Connexió BD */
+    Conexio con= new Conexio();
+    Connection cn;
+    Statement st;
+    ResultSet rs;
+    DefaultTableModel model;
 
     /* Atributs de classe */
   public static LlistaEntitats ll_enti;
@@ -65,14 +76,14 @@ public class JFrameEntitats extends javax.swing.JFrame {
             initComponents();
             setLocationRelativeTo(null);
             grupsTitle.setHorizontalAlignment(JLabel.CENTER); // Fa que el text de grupsTitle estigui centrat al seu contenidor
-            emplenarTaula("");
+            //emplenarTaula("");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /* Mètode per a emplenar la taula de entitats */
-    public void emplenarTaula(String s) {
+   /* public void emplenarTaula(String s) {
         Object[] columnNames = {"ID", "Nom", "Ciutat", "Email", "Data Alta", "Data Baixa", "Estat"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
@@ -86,7 +97,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
             model.addRow(rowData);
         }
         taulaEntitats.setModel(model);
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -325,7 +336,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
                 int conf = JOptionPane.showConfirmDialog(this, "Esteu segurs de borrar aquesta entitat?", "Confirmar", JOptionPane.YES_NO_OPTION);
                 if (conf == JOptionPane.YES_OPTION) { // Si hem clickat a Confirmar, entra al if, borra l'element seleccionat, refresca la taula i fica selectedItem a -1 (ningun seleccionat)
                     ll_enti.baixaEntitat(selectedItem);
-                    emplenarTaula("");
+                    //emplenarTaula("");
                     selectedItem = -1;
                 }
             } else {
@@ -338,7 +349,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
     }//GEN-LAST:event_borrarEntitatMouseClicked
 
     private void searchGroupsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchGroupsKeyTyped
-        emplenarTaula(searchGroups.getText()); // Cada vegada que s'escriu al input s'actualitza la taula
+        //emplenarTaula(searchGroups.getText()); // Cada vegada que s'escriu al input s'actualitza la taula
     }//GEN-LAST:event_searchGroupsKeyTyped
 
     private void modificarEntitatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarEntitatMouseClicked
@@ -407,7 +418,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
                     //Cridem al mètode per a importar entitats indicant-li la classe llistaEntitats i la ruta del fitxer a importar
                     FileCsv.exportarCsvEntitats(consulta2, ruta);
                     //Finalment emplenem la taula amb els valors importats
-                    emplenarTaula("");
+                    //emplenarTaula("");
                 }
 
             } else if (seleccion == JFileChooser.CANCEL_OPTION) {
@@ -445,7 +456,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
                 //Cridem al mètode per a importar entitats indicant-li la classe llistaEntitats i la ruta del fitxer a importar
                 LectorCsv.importarEntitats(ll_enti, ruta);
                 //Finalment emplenem la taula amb els valors importats
-                emplenarTaula("");
+                //emplenarTaula("");
             } else if (seleccion == JFileChooser.CANCEL_OPTION) {
                 //Mostrem error si no selecciona res
                 JOptionPane.showMessageDialog(this, "No has escollit cap fitxer", "Error", JOptionPane.WARNING_MESSAGE);
@@ -507,6 +518,34 @@ public class JFrameEntitats extends javax.swing.JFrame {
                 new JFrameEntitats(ll_enti, ll_proj, ll_prop,ll_pres).setVisible(true);
             }
         });
+    }
+    
+     void llistarEmpreses(){
+        String sql="select * from empresas";
+        try {
+            cn=con.getConnection();
+            st=cn.createStatement();
+            rs=st.executeQuery(sql);
+            Object[]empresa=new Object[7];
+            //Iniciem el model
+           
+            
+            //Indiquem els camps i indiquem que s'afegeixi la línia
+            while(rs.next()){
+                empresa[0]=rs.getInt("id");
+                empresa[1]=rs.getString("nom");
+                empresa[2]=rs.getString("localitat");
+                empresa[3]=rs.getString("direccio");
+                empresa[4]=rs.getString("telefon");
+                empresa[5]=rs.getString("cif");
+                empresa[6]=rs.getString("email");
+                model.addRow(empresa);
+            }
+            //Envia les dades a la taula per mostrar-les
+           
+        } catch (Exception e) {
+            
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

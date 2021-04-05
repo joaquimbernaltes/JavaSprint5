@@ -10,7 +10,7 @@ public class ConexionSql {
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conectar=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectussprint4","josep","*Deltebre43580");
+            conectar=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/proiectussprint4","root","");
 
             JOptionPane.showMessageDialog(null,"Connexio exitosa.");
         }

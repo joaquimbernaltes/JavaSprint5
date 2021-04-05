@@ -15,6 +15,7 @@
  */
 package sprint4.provasprint4.classes;
 
+
 /**
  * Empresa
  *
@@ -23,30 +24,103 @@ package sprint4.provasprint4.classes;
  */
 
 /* Aquesta classe conté els atributs, constructor, setters i getters de les empreses*/
-public class Empresa extends Entitat {
+public class Empresa {
+
+    private int id;
+    private String nom;
+    private String localitat;
+    private String direccio;
+    private String telefon;
+    private String cif;
+    private String email;
+    private String estat;
+    private int contador;
+
+    /* Constructor */
+    public Empresa(int id, String nom, String localitat, String direccio, String telefon, String cif, String email) {
+        this.id = id;
+        this.nom = nom;
+        this.localitat = localitat;
+        this.direccio =  direccio;
+        this.telefon = telefon;
+        this.cif = cif;
+        this.cif = email;
+        this.estat = "Actiu";
+        
+
+    }
+    public int getComptadorProjectes() {
+        return contador;
+    }
+    /* Getters */
+    public int getId() {
+        return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getLocalitat() {
+        return localitat;
+    }
+
+    public String getDireccio() {
+        return direccio;
+
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public String getCif() {
+        return cif;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public String getEstat() {
+        return estat;
+    }
+
+    /* Setters */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setLocalitat(String localitat) {
+        this.localitat = localitat;
+    }
+    public void setDireccio(String direccio) {
+        this.direccio = direccio;
+    }
     
-    /* Atribut de la classe Empresa */
-    private String NIF;
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public void setCif(String cif) {
+        this.cif = cif;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     
-    /* Constructor amb els atributs de l'herència i el de la classe*/
-    public Empresa(int ID, String nom, String ciutat, String email, String nif) {
-        super(ID, nom, ciutat, email);
-        this.NIF = nif;
+
+    public void setEstat(String estat) {
+        this.estat = estat;
     }
 
-    //Setters
-    public void setNIF(String nif) {
-        NIF = nif;
-    }
-
-    //Getters
-    public String getNIF() {
-        return NIF;
-    }
-
-    //toString
+    /* toString */
     public String toString() {
-        return this.getId() + "" + this.getNom() + "" + this.getCiutat() + "" + this.getEmail() + "" + NIF + "" + this.getDataAlta() + "" + this.getDataBaixa() + "" + this.getEstat();
+        return id + " " + nom + " " + localitat + " " + direccio + " " + telefon + " " + cif + " " + email;
     }
-
 }
