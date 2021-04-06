@@ -82,29 +82,29 @@ public class LlistaEntitats {
     }
 
     /* Mètode per afegir una entitat a la llista */
-    public void afegirEntitat(String nom, String ciutat, String email) {
+    public void afegirEntitat(String nom, String localitat, String direccio, String telefon, String cif, String email) {
 
         try {
-            Entitat e = new Entitat(contador + 1, nom, ciutat, email);
+            Entitat e = new Entitat(contador + 1, nom, localitat, direccio, telefon, cif, email);
             ll_e.add(contador, e);
             contador++;
-            log.generarInfoLog("info.log", "S'ha afegit la entitat " + e.getNom() + ", de la localitat de " + e.getCiutat() + " amb email " + e.getEmail() + ".\n");
+            log.generarInfoLog("info.log", "S'ha afegit la entitat " + e.getNom() + ", de la localitat de " + e.getLocalitat() + " amb email " + e.getEmail() + ".\n");
         } catch (Exception e) {
             log.generarErrorLog("error.log", e.toString());
         }
     }
 
     /* Mètode per a modificar els atributs d'una entitat */
-    public void modificarEntitat(int id, String nom, String ciutat, String email, String data_alta, String data_baixa, String estat) {
+    public void modificarEntitat(int id, String nom, String localitat, String direccio, String telefon, String cif, String email, String estat) {
         try {
 
             this.ll_e.get(id).setNom(nom);
-            this.ll_e.get(id).setCiutat(ciutat);
+            this.ll_e.get(id).setLocalitat(localitat);
             this.ll_e.get(id).setEmail(email);
-            this.ll_e.get(id).setData(data_alta);
-            this.ll_e.get(id).setDataBaixa(data_baixa);
+//            this.ll_e.get(id).setData(data_alta);
+//            this.ll_e.get(id).setDataBaixa(data_baixa);
             this.ll_e.get(id).setEstat(estat);
-            log.generarInfoLog("info.log", "S'ha modificat l'entitat " + this.ll_e.get(id).getNom() + ", amb les següent dades: " + "\n" + " -Ciutat: " + this.ll_e.get(id).getCiutat() + "\n" + "-Correu: " + this.ll_e.get(id).getEmail() + "\n" + "-Data Alta: " + this.ll_e.get(id).getDataAlta() + "\n" + "-Data Baixa: " + this.ll_e.get(id).getDataBaixa() + "\n" + "-Estat: " + this.ll_e.get(id).getEstat() + "\n");
+            log.generarInfoLog("info.log", "S'ha modificat l'entitat " + this.ll_e.get(id).getNom() + ", amb les següent dades: " + "\n" + " -Ciutat: " + this.ll_e.get(id).getLocalitat() + "\n" + "-Correu: " + this.ll_e.get(id).getEmail() + "\n" + "\n" + "-Estat: " + this.ll_e.get(id).getEstat() + "\n");
 
         } catch (Exception e) {
             log.generarErrorLog("error.log", e.toString());
@@ -115,9 +115,9 @@ public class LlistaEntitats {
     public void baixaEntitat(int item) {
         try {
 
-            ll_e.get(item).setDataBaixa(actualData);
+            //ll_e.get(item).setDataBaixa(actualData);
             ll_e.get(item).setEstat("Innactiu");
-            log.generarInfoLog("info.log", "S'ha donat de baixa l'entitat " + this.ll_e.get(item).getNom() + ", de la localitat de " + this.ll_e.get(item).getCiutat() + " amb email " + this.ll_e.get(item).getEmail() + ".\n");
+            log.generarInfoLog("info.log", "S'ha donat de baixa l'entitat " + this.ll_e.get(item).getNom() + ", de la localitat de " + this.ll_e.get(item).getLocalitat() + " amb email " + this.ll_e.get(item).getEmail() + ".\n");
 
         } catch (Exception e) {
             log.generarErrorLog("error.log", e.toString());

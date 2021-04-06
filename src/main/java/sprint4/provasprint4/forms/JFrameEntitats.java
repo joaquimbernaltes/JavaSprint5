@@ -76,6 +76,7 @@ public class JFrameEntitats extends javax.swing.JFrame {
             initComponents();
             setLocationRelativeTo(null);
             grupsTitle.setHorizontalAlignment(JLabel.CENTER); // Fa que el text de grupsTitle estigui centrat al seu contenidor
+            llistarEmpreses();
             //emplenarTaula("");
         } catch (Exception e) {
             e.printStackTrace();
@@ -531,7 +532,8 @@ public class JFrameEntitats extends javax.swing.JFrame {
             rs=st.executeQuery(sql);
             Object[]empresa=new Object[8];
             //Iniciem el model
-           
+            model=(DefaultTableModel)taulaEntitats.getModel();
+
             
             //Indiquem els camps i indiquem que s'afegeixi la línia
             while(rs.next()){

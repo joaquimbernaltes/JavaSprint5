@@ -1,3 +1,5 @@
+
+
 /**
  *                               Copyrigth 2020
  *
@@ -24,24 +26,49 @@ import java.util.Date;
  */
 
 /* Aquesta classe conté els atributs, constructor, setters i getters dels centres*/
+//public class Entitat {
+//
+//    private int id;
+//    private String nom;
+//    private String ciutat;
+//    private String email;
+//    private String data_alta;
+//    private String data_baixa;
+//    private String estat;
+//
+//    public Entitat(int id, String nom, String ciutat, String email) {
+//        this.id = id;
+//        this.nom = nom;
+//        this.ciutat = ciutat;
+//        this.email = email;
+//        this.data_alta = setDataAlta();
+//        this.data_baixa = " ";
+//        this.estat = "Activa";
+//
+//    }
 public class Entitat {
 
     private int id;
     private String nom;
-    private String ciutat;
+    private String localitat;
+    private String direccio;
+    private String telefon;
+    private String cif;
     private String email;
-    private String data_alta;
-    private String data_baixa;
     private String estat;
+    private int contador;
 
-    public Entitat(int id, String nom, String ciutat, String email) {
+    /* Constructor */
+    public Entitat(int id, String nom, String localitat, String direccio, String telefon, String cif, String email) {
         this.id = id;
         this.nom = nom;
-        this.ciutat = ciutat;
-        this.email = email;
-        this.data_alta = setDataAlta();
-        this.data_baixa = " ";
-        this.estat = "Activa";
+        this.localitat = localitat;
+        this.direccio =  direccio;
+        this.telefon = telefon;
+        this.cif = cif;
+        this.cif = email;
+        this.estat = "actiu";
+        
 
     }
 
@@ -54,22 +81,22 @@ public class Entitat {
         return nom;
     }
 
-    public String getCiutat() {
-        return ciutat;
+    public String getLocalitat() {
+        return localitat;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getDataAlta() {
-        return data_alta;
-
-    }
-
-    public String getDataBaixa() {
-        return data_baixa;
-    }
+//    public String getDataAlta() {
+//        return data_alta;
+//
+//    }
+//
+//    public String getDataBaixa() {
+//        return data_baixa;
+//    }
 
     public String getEstat() {
         return estat;
@@ -84,8 +111,8 @@ public class Entitat {
         this.nom = nom;
     }
 
-    public void setCiutat(String ciutat) {
-        this.ciutat = ciutat;
+    public void setLocalitat(String localitat) {
+        this.localitat = localitat;
     }
 
     public void setEmail(String email) {
@@ -98,13 +125,13 @@ public class Entitat {
         return formatador.format(actual);
     }
 
-    public void setData(String data_alta) {
-        this.data_alta = data_alta;
-    }
-
-    public void setDataBaixa(String data_baixa) {
-        this.data_baixa = data_baixa;
-    }
+//    public void setData(String data_alta) {
+//        this.data_alta = data_alta;
+//    }
+//
+//    public void setDataBaixa(String data_baixa) {
+//        this.data_baixa = data_baixa;
+//    }
 
     public void setEstat(String estat) {
         this.estat = estat;
@@ -112,6 +139,6 @@ public class Entitat {
 
     //toString
     public String toString() {
-        return id + " " + nom + " " + ciutat + " " + email + " " + data_alta + " " + data_baixa + " " + estat;
+        return id + " " + nom + " " + localitat + " " + direccio + " " + telefon + " " + cif + " " + email + " " + estat;
     }
 }
